@@ -2,7 +2,7 @@
 
 namespace skrtdev\Prototypes;
 
-use Closure, ReflectionFunction, Error;
+use Closure, Error;
 
 class Prototypes {
 
@@ -16,7 +16,7 @@ class Prototypes {
         return self::$classes[$class_name] ??= in_array(Prototypeable::class, self::getClassTraits($class_name));
     }
 
-    public static function addMethod(string $class_name, string $name, Closure $fun): void
+    public static function addClassMethod(string $class_name, string $name, Closure $fun): void
     {
         if(self::isPrototypeable($class_name)){
             if(!method_exists($class_name, $name)){

@@ -11,7 +11,7 @@ trait Prototypeable{
     }
 
     final public static function addMethod(string $name, Closure $fun){
-        return Prototypes::addMethod(static::class, $name, $fun);
+        return Prototypes::addClassMethod(static::class, $name, $fun);
     }
 }
 
