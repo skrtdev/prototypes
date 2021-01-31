@@ -23,7 +23,7 @@ Output is `What a nice way to use PHP`
 
 - Closures are binded to the original object, so you can access `$this` inside closures in the same way as you do when writing a normal method for that class.  
 - A native-like `\Error` will be thrown when trying to call a non-existent method.  
-- A `skrtdev\Prototypes\Exception` will be thrown if class method already exists, is a prototype, or class isn't Prototypeable (when using `skrtdev\Prototypes\Prototypes::addMethod()`).  
+- A `skrtdev\Prototypes\Exception` will be thrown if class method already exists, is a prototype, class does not exist or isn't Prototypeable (when using `skrtdev\Prototypes\Prototypes::addMethod()`).  
 
 ### Check if a Class is Prototypeable
 

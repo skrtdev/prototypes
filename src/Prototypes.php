@@ -50,7 +50,11 @@ class Prototypes {
         }
     }
 
-    protected static function getClassTraits(string $class) {
+    protected static function getClassTraits(string $class): array
+    {
+        if(!class_exists($class)){
+            throw new Exception("Class $class does not exist");
+        }
         $traits = [];
         do {
             $traits = array_merge(class_uses($class), $traits);
