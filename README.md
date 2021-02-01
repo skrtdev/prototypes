@@ -1,7 +1,7 @@
 # Prototypes
 > Dinamically add methods to PHP classes
 
-Using this library you can dinamically add methods to classes, as in the following example:  
+Using this library you can dinamcally add methods to classes, as in the following example:  
 ```php
 use skrtdev\Prototypes\Prototypeable;
 
@@ -21,7 +21,8 @@ Output is `What a nice way to use PHP`
 
 ### Main Features
 
-- Closures are binded to the original object, so you can access `$this` inside closures in the same way as you do when writing a normal method for that class.  
+- Closures are bound to the original object, so you can access `$this` inside closures in the same way as you do when writing a normal method for that class.
+- Supports **static** methods too, and you can access `self` and `static` too.  
 - A native-like `\Error` will be thrown when trying to call a non-existent method.  
 - A `skrtdev\Prototypes\Exception` will be thrown if class method already exists, is a prototype, class does not exist or isn't Prototypeable (when using `skrtdev\Prototypes\Prototypes::addMethod()`).  
 
@@ -56,5 +57,4 @@ The `Prototypes` class itself is `Prototypeable`, how strange.
 - Allow to add all methods of a normal/anonymous class into a Prototypeable one (Using `Reflection`?).  
 - Add ability to use some kind of [Attributes](https://www.php.net/manual/en/language.attributes.overview.php) to functions, classes and methods in order to add them as methods to a class, instead of manually adding them.  
 - Add the ability to define prototype methods that has been already defined as prototypes, overwriting them.  
-- Add the ability to define prototype for **static** methods. (is it useful enough?)  
 - Add the ability to define prototypes for all the Prototypeable classes. (do you see any use cases?)  
