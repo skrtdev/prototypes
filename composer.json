@@ -20,5 +20,10 @@
         "psr-4":{
             "skrtdev\\Prototypes\\":"src/"
         }
+    },
+    "autoload-dev":{
+        "psr-4":{
+            "skrtdev\\PrototypesTests\\":"tests/"
+        }
     }
 }
