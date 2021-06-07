@@ -1,4 +1,7 @@
 # Prototypes
+
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/18356c7391e84b3faf1cc2fe50de42b8)](https://app.codacy.com/gh/skrtdev/prototypes?utm_source=github.com&utm_medium=referral&utm_content=skrtdev/prototypes&utm_campaign=Badge_Grade_Settings)
+
 > Dinamically add methods to PHP classes
 
 Using this library you can dinamcally add methods to classes, as in the following example:  
