@@ -37,4 +37,9 @@ class PrototypesTest extends TestCase
         DemoClassTest::addMethod('existentMethod', fn() => $this->property);
     }
 
+    public function testCanUseCallable(): void
+    {
+        $this->assertNull(DemoClassTest::addMethod('unexistentMethod', 'file_get_contents'));
+    }
+
 }

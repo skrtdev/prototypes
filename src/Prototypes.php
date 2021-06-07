@@ -25,20 +25,14 @@ class Prototypes {
 
 
     /**
-     * @param string $class_name
-     * @param string $name
-     * @param Closure $fun
      * @throws Exception
      */
-    public static function addClassMethod(string $class_name, string $name, Closure $fun): void
-    {
+    protected static function validateClassMethod(string $class_name, string $name): void{
         if(self::isPrototypeable($class_name)){
+            self::$methods[$class_name] ??= [];
+            self::$static_methods[$class_name] ??= [];
             if(!method_exists($class_name, $name)){
-                self::$methods[$class_name] ??= [];
-                if(!self::classHasPrototypeMethod($class_name, $name)){
-                    self::$methods[$class_name][$name] = $fun;
-                }
-                else{
+                if(self::classHasPrototypeMethod($class_name, $name)){
                     throw new Exception("Invalid method name provided for class '$class_name': method '$name' is already a Prototype");
                 }
             }
@@ -52,30 +46,39 @@ class Prototypes {
     }
 
     /**
+     * @param callable|Closure $callable
+     */
+    protected static function normalizeCallable($callable): Closure
+    {
+        if(!($callable instanceof Closure)){
+            $callable = Closure::fromCallable($callable);
+        }
+        return $callable;
+    }
+
+
+    /**
      * @param string $class_name
      * @param string $name
-     * @param Closure $fun
+     * @param callable $fun
      * @throws Exception
      */
-    public static function addClassStaticMethod(string $class_name, string $name, Closure $fun): void
+    public static function addClassMethod(string $class_name, string $name, callable $fun): void
     {
-        if(self::isPrototypeable($class_name)){
-            if(!method_exists($class_name, $name)){
-                self::$static_methods[$class_name] ??= [];
-                if(!self::classHasPrototypeMethod($class_name, $name)){
-                    self::$static_methods[$class_name][$name] = $fun;
-                }
-                else{
-                    throw new Exception("Invalid method name provided for class '$class_name': method '$name' is already a Prototype");
-                }
-            }
-            else{
-                throw new Exception("Invalid method name provided for class '$class_name': method '$name' already exists");
-            }
-        }
-        else{
-            throw new Exception("Invalid class provided: class '$class_name' is not Prototypeable");
-        }
+        self::validateClassMethod($class_name, $name);
+        self::$methods[$class_name][$name] = self::normalizeCallable($fun);
+    }
+
+    /**
+     * @param string $class_name
+     * @param string $name
+     * @param callable $fun
+     * @throws Exception
+     */
+    public static function addClassStaticMethod(string $class_name, string $name, callable $fun): void
+    {
+        self::validateClassMethod($class_name, $name);
+        self::$static_methods[$class_name][$name] = self::normalizeCallable($fun);
     }
 
     /**

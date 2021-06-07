@@ -2,8 +2,6 @@
 
 namespace skrtdev\Prototypes;
 
-use Closure;
-
 trait Prototypeable{
 
     /**
@@ -18,10 +16,10 @@ trait Prototypeable{
 
     /**
      * @param string $name
-     * @param Closure $fun
+     * @param callable $fun
      * @throws Exception
      */
-    final public static function addMethod(string $name, Closure $fun): void
+    public static function addMethod(string $name, callable $fun): void
     {
         Prototypes::addClassMethod(static::class, $name, $fun);
     }
@@ -38,10 +36,10 @@ trait Prototypeable{
 
     /**
      * @param string $name
-     * @param Closure $fun
+     * @param callable $fun
      * @throws Exception
      */
-    final public static function addStaticMethod(string $name, Closure $fun): void
+    public static function addStaticMethod(string $name, callable $fun): void
     {
         Prototypes::addClassStaticMethod(static::class, $name, $fun);
     }
