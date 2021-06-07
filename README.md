@@ -1,7 +1,7 @@
 # Prototypes
 > Dinamically add methods to PHP classes
 
-[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/skrtdev/prototypes/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/skrtdev/prototypes/?branch=master) [![Build Status](https://scrutinizer-ci.com/g/skrtdev/prototypes/badges/build.png?b=master)](https://scrutinizer-ci.com/g/skrtdev/prototypes/build-status/master) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/ab3a826ec45e45d7bcc910c39df1331a)](https://www.codacy.com/gh/skrtdev/prototypes/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=skrtdev/prototypes&amp;utm_campaign=Badge_Grade)  
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/skrtdev/prototypes/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/skrtdev/prototypes/?branch=master) [![Build Status](https://scrutinizer-ci.com/g/skrtdev/prototypes/badges/build.png?b=master)](https://scrutinizer-ci.com/g/skrtdev/prototypes/build-status/master) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/ab3a826ec45e45d7bcc910c39df1331a)](https://www.codacy.com/gh/skrtdev/prototypes/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=skrtdev/prototypes&amp;utm_campaign=Badge_Grade) ![php version](https://img.shields.io/badge/php-%3E%3D7.4-blueviolet)  
 Using this library you can dinamcally add methods to classes, as in the following example:  
 ```php
 use skrtdev\Prototypes\Prototypeable;
