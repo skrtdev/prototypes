@@ -1,6 +1,7 @@
 # Prototypes
 > Dinamically add methods to PHP classes
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/skrtdev/prototypes/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/skrtdev/prototypes/?branch=master) [![Build Status](https://scrutinizer-ci.com/g/skrtdev/prototypes/badges/build.png?b=master)](https://scrutinizer-ci.com/g/skrtdev/prototypes/build-status/master) [![Codacy Badge](https://app.codacy.com/project/badge/Grade/ab3a826ec45e45d7bcc910c39df1331a)](https://www.codacy.com/gh/skrtdev/prototypes/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=skrtdev/prototypes&amp;utm_campaign=Badge_Grade)  
 Using this library you can dinamcally add methods to classes, as in the following example:  
 ```php
 use skrtdev\Prototypes\Prototypeable;
@@ -21,10 +22,11 @@ Output is `What a nice way to use PHP`
 
 ### Main Features
 
-- Closures are bound to the original object, so you can access `$this` inside closures in the same way as you do when writing a normal method for that class.
-- Supports **static** methods too, and you can access `self` and `static` too.  
-- A native-like `\Error` will be thrown when trying to call a non-existent method.  
-- A `skrtdev\Prototypes\Exception` will be thrown if class method already exists, is a prototype, class does not exist or isn't Prototypeable (when using `skrtdev\Prototypes\Prototypes::addMethod()`).  
+  - Closures are bound to the original object, so you can access `$this` inside closures in the same way as you do when writing a normal method for that class.
+  - Supports **static** methods too, and you can access `self` and `static` too.  
+  - A native-like `\Error` will be thrown when trying to call a non-existent method.  
+  - A `skrtdev\Prototypes\Exception` will be thrown if class method already exists, is a prototype, class does not exist or isn't Prototypeable (when using `skrtdev\Prototypes\Prototypes::addMethod()`).
+  - Ability to use any kind of `callable`s, not just `Closure`s.
 
 ### Check if a Class is Prototypeable
 
@@ -44,17 +46,15 @@ The `Prototypes` class itself is `Prototypeable`, how strange.
 
 ### Known issues
 
-- This library does not have `Inheritance`: you won't be able to use Prototypes methods defined for a class in his child classes. (this is going to be added soon)  
-- You won't be able to use [named arguments](https://www.php.net/manual/en/functions.arguments.php#functions.named-arguments) in Prototypes methods, as `array unpacking` doesn't work with string keys [yet](https://wiki.php.net/rfc/array_unpacking_string_keys).  
-- You can't override already-prototyped methods, but this will be added soon.  
-- Any kind of `Error/Exception`(s) look a bit strange in the Stack traces, and method name is hidden. Maybe there is a solution; if you find it, feel free to open an `Issue/Pull Request`.  
+  - This library does not have `Inheritance`: you won't be able to use Prototypes methods defined for a class in his child classes. (this is going to be added soon)  
+  - You won't be able to use [named arguments](https://www.php.net/manual/en/functions.arguments.php#functions.named-arguments) in Prototypes methods, as `array unpacking` doesn't work with string keys [yet](https://wiki.php.net/rfc/array_unpacking_string_keys).  
+  - You can't override already-prototyped methods, but this will be added soon.  
+  - Any kind of `Error/Exception`(s) look a bit strange in the Stack traces, and method name is hidden. Maybe there is a solution; if you find it, feel free to open an `Issue/Pull Request`.  
 
 ### Future scope
 
-- Add the ability to use `callable`s instead of `Closure`s.  
-- Use `class_parent()` to implement some kind of `Inheritance`. This may slow up calling prototypes in classes with a long hierarchy.  
-- Maybe add the ability to add a method to a class without adding it to his children. (does it make sense?)
-- Allow to add all methods of a normal/anonymous class into a Prototypeable one (Using `Reflection`?).  
-- Add ability to use some kind of [Attributes](https://www.php.net/manual/en/language.attributes.overview.php) to functions, classes and methods in order to add them as methods to a class, instead of manually adding them.  
-- Add the ability to define prototype methods that has been already defined as prototypes, overwriting them.  
-- Add the ability to define prototypes for all the Prototypeable classes. (do you see any use cases?)  
+  - Use `class_parent()` to implement some kind of `Inheritance`. This may slow up calling prototypes in classes with a long hierarchy.  
+  - Maybe add the ability to add a method to a class without adding it to his children. (does it make sense?)
+  - Allow to add all methods of a normal/anonymous class into a Prototypeable one (Using `Reflection`?).  
+  - Add the ability to define prototype methods that has been already defined as prototypes, overwriting them.  
+  - Add the ability to define prototypes for all the Prototypeable classes. (do you see any use cases?)  
