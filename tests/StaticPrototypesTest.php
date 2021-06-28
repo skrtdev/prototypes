@@ -37,4 +37,13 @@ class StaticPrototypesTest extends TestCase
         DemoClassTest::addStaticMethod('existentStaticMethod', fn() => self::$static_property);
     }
 
+    public function testCanUseNamedArguments(): void
+    {
+        DemoClassTest::addStaticMethod('staticMethodWithNamedArguments', function (int $named_argument){
+            return $named_argument;
+        });
+        $this->assertEquals(12, DemoClassTest::staticMethodWithNamedArguments(named_argument: 12));
+        $this->assertEquals(12, DemoClassTest::staticMethodWithNamedArguments(...['named_argument' => 12]));
+    }
+
 }

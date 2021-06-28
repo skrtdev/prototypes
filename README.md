@@ -27,6 +27,7 @@ Output is `What a nice way to use PHP`
   - A native-like `\Error` will be thrown when trying to call a non-existent method.  
   - A `skrtdev\Prototypes\Exception` will be thrown if class method already exists, is a prototype, class does not exist or isn't Prototypeable (when using `skrtdev\Prototypes\Prototypes::addMethod()`).
   - Ability to use any kind of `callable`s, not just `Closure`s.
+  - Ability to use [named arguments](https://www.php.net/manual/en/functions.arguments.php#functions.named-arguments) in Prototypes methods.
 
 ### Check if a Class is Prototypeable
 
@@ -47,7 +48,6 @@ The `Prototypes` class itself is `Prototypeable`, how strange.
 ### Known issues
 
   - This library does not have `Inheritance`: you won't be able to use Prototypes methods defined for a class in his child classes. (this is going to be added soon)  
-  - You won't be able to use [named arguments](https://www.php.net/manual/en/functions.arguments.php#functions.named-arguments) in Prototypes methods, as `array unpacking` doesn't work with string keys [yet](https://wiki.php.net/rfc/array_unpacking_string_keys).  
   - You can't override already-prototyped methods, but this will be added soon.  
   - Any kind of `Error/Exception`(s) look a bit strange in the Stack traces, and method name is hidden. Maybe there is a solution; if you find it, feel free to open an `Issue/Pull Request`.  
 

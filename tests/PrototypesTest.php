@@ -42,4 +42,13 @@ class PrototypesTest extends TestCase
         $this->assertNull(DemoClassTest::addMethod('unexistentMethod', 'file_get_contents'));
     }
 
+    public function testCanUseNamedArguments(): void
+    {
+        DemoClassTest::addMethod('methodWithNamedArguments', function (int $named_argument){
+            return $named_argument;
+        });
+        $this->assertEquals(12, (new DemoClassTest)->methodWithNamedArguments(named_argument: 12));
+        $this->assertEquals(12, (new DemoClassTest)->methodWithNamedArguments(...['named_argument' => 12]));
+    }
+
 }
